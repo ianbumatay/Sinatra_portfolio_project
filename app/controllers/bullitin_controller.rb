@@ -22,6 +22,24 @@ class BullitinController <ApplicationController
         @bullitin = Bullitin.find(params[:id]) 
 
         erb :"/bullitins/show" 
-    end
+    end 
+    
+    get "/bullitins/:id/edit" do  
+        @bullitin = Bullitin.find(params[:id]) 
+
+        erb :"/bullitins/edit" 
+    end 
+
+    patch "/bullitins/:id" do 
+        #binding.pry
+        bullitin = Bullitin.find(params[:id])
+        bullitin.update(title: params[:title], content: params[:content])
+
+        redirect "/bullitins"
+    end 
+
+    
+
+
 
 end

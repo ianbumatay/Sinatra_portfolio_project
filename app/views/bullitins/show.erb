@@ -3,4 +3,10 @@
 <h4><%= @bullitin.title %> </h4>
 <h4><%= @bullitin.content %> </h4> 
 
-<a href="/bullitins"> back </a>
+<a href="/bullitins"> back </a> 
+
+
+<form action="/bullitins/<%= @bullitin.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form> 

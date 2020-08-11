@@ -36,7 +36,14 @@ class BullitinController <ApplicationController
         bullitin.update(title: params[:title], content: params[:content])
 
         redirect "/bullitins"
-    end 
+    end  
+
+    delete "/bullitins/:id" do 
+        bullitin = Bullitin.find(params[:id]) 
+        bullitin.delete  
+
+        redirect "/bullitins"
+    end
 
     
 

@@ -5,5 +5,5 @@ require './config/environment'
 # end
 
 use UserController
-use BuillitinController
+use BullitinController
 run ApplicationController

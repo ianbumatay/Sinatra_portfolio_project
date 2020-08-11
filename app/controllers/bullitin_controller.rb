@@ -1,0 +1,3 @@
+class BullitinController <ApplicationController 
+
+end

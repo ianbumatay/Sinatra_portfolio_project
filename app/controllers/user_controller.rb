@@ -10,15 +10,30 @@ class UserController < ApplicationController
      erb :"/users/signup" 
    end 
 
-   post "/users" do  
-    #binding.pry 
-    @user = User.new(username: params[:username], 
-                        email: params[:email], 
-                     password: params[:password]) 
-     @user.save  
+   post "/signup" do  
+  
+    
 
-     redirect "/users/home"
-   end 
+     redirect "/bullitins"
+   end   
+
+   get "/users/login" do 
+    erb :"/users/login" 
+   end
+   
+   post "/login" do  
+    #binding.pry
+     @user = User.find_by(username: params[:username],
+                       password_digest: params[:password_digest])  
+      if @user 
+        session[:user_id] = @user.id 
+        redirect "/bullitins" 
+      else 
+        redirect "/users/login" 
+      end
+   end
+
+
 
 
 

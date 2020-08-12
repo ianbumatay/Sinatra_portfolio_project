@@ -1,4 +1,4 @@
-<h2> Bullitin Board </h2>  
+<h4> <%= current_user.username %>'s Bullitin  </h4>
 
    <%@bullitins.each do |bullitin|%>  
     <li> <a href="/bullitins/ <%= bullitin.id %>" ></li>

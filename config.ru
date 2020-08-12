@@ -5,6 +5,7 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
-use UserController
+
 use BullitinController
+use UserController
 run ApplicationController

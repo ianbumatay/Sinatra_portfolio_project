@@ -11,12 +11,10 @@ class UserController < ApplicationController
         erb :"/users/signup"
     end 
 
-     post "/signup" do  
+     post "/signup" do
         user = User.create(params)  
-
+      
         redirect :"/bullitins"
-        #binding.pry
-   
      end
 
    

@@ -11,11 +11,18 @@ class UserController < ApplicationController
    end 
 
    post "/signup" do  
-  
-    
+     
+      if params[:username] == "" || params[:password_digest] == ""
+        erb :"/users/home" 
+      else
+        user = User.create(params)
+        session[user_id] = @user.id
+        redirect "/bullitins" 
+      end
+   end  
+   
+   
 
-     redirect "/bullitins"
-   end   
 
    get "/users/login" do 
     erb :"/users/login" 

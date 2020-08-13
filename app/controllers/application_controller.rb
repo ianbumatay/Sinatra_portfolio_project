@@ -7,6 +7,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'  
     enable :sessions 
     set :session_secret, ENV['SESSION_SECRET']
+  end 
+
+  get "/" do
+    erb :"/home"
   end
 
   helpers do  
@@ -16,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end 
 
     def current_user 
-      @current_user = User.find_by_id(session[:user_id]) 
+      current_user = User.find_by_id(session[:user_id]) 
     end
 
   end

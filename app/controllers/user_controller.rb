@@ -2,10 +2,7 @@ class UserController < ApplicationController
 
 
 
-    get "/" do
-        erb :"users/home"
-    end
-
+    
     get "/users/signup" do
         erb :"/users/signup"
     end 
@@ -29,7 +26,13 @@ class UserController < ApplicationController
         else 
             redirect "/users/login" 
         end 
-    end
+     end 
+
+     get "/logout" do 
+        session.clear 
+
+        erb :home
+     end
 
    
 end

@@ -8,9 +8,13 @@ class UserController < ApplicationController
     end 
 
      post "/signup" do
-        user = User.create(params)  
-      
-        redirect :"/bullitins"
+        if params[:username].empty? || params[:email].empty? 
+            erb :"/users/signup" 
+        else
+          user = User.create(params)
+          #session[:user_id] = @user.id
+          erb :"/users/login" 
+        end
      end  
 
 

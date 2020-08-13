@@ -11,9 +11,9 @@ class UserController < ApplicationController
         if params[:username].empty? || params[:email].empty? 
             erb :"/users/signup" 
         else
-          user = User.create(params)
-          #session[:user_id] = @user.id
-          erb :"/users/login" 
+          @user = User.create(params)
+          session[:user_id] = @user.id
+          redirect "/bullitins"
         end
      end  
 

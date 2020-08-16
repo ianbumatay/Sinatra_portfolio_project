@@ -28,7 +28,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect "/bullitins" 
         else 
-            redirect "/login" 
+            redirect :"/users/login" 
         end 
      end 
 

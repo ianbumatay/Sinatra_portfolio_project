@@ -2,16 +2,10 @@
     <h2> Hi! <%= current_user.username %>  </h2>
 
    <%@bullitins.each do |bullitin|%>  
-    <p> <a href="/bullitins/ <%= bullitin.id %>" ></p> 
+      <p> <a href="/bullitins/ <%= bullitin.id %>" ></p> 
+      <p><h4><%= bullitin.title %></h4> by <%= bullitin.user.username %> </p>  
+  <% end %>
+   
+  <br>
 
-    <p><%= bullitin.title %>  </p>
-
-    <p> <a href="/bullitins/ <%= bullitin.id %>/edit"> Edit </p> 
-    <% end %>
-
-    
-    
-    
-    
-    <br>
     <a href="/bullitins/new"> Create New Bullitins </a>

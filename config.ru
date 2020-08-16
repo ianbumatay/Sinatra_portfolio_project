@@ -6,6 +6,6 @@ require './config/environment'
 
 use Rack::MethodOverride
 
-use BullitinController
-use UserController
+use BullitinsController
+use UsersController
 run ApplicationController

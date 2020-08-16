@@ -1,4 +1,4 @@
-class BullitinController <ApplicationController  
+class BullitinsController <ApplicationController  
 
     get "/bullitins" do  
         if logged_in?
@@ -48,7 +48,7 @@ class BullitinController <ApplicationController
         @bullitin = Bullitin.find_by_id(params[:id]) 
         if @bullitin.user == current_user
             if @bullitin.update(title: params[:title], content: params[:content]) 
-                binding.pry
+              
               redirect "/bullitins" 
              else 
               erb :"/bullitins/edit"

@@ -62,8 +62,9 @@ class BullitinsController <ApplicationController
 
     delete "/bullitins/:id" do 
         @bullitin = Bullitin.find_by_id(params[:id]) 
-        @bullitin.delete  
-
+        if @bullitin.user == current_user
+           @bullitin.delete  
+        end
         redirect "/bullitins"
     end
 

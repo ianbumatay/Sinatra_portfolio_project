@@ -1,32 +1,30 @@
  
-<h2> Hi! <%= current_user.username %><h2>
- 
 
 
-<li><h2><%= @bullitin.title %> </h2></li> 
 
-<p>
-<li><h4><%= @bullitin.content %> </h4></li>   
-</p> 
+<div class="container">
+<header>
+<h4> Hi! <%= current_user.username %> welcome to your bullitin's<h4> <br>
+</header>
+<div class="col-md-8 col-md-offset-2">
 
- 
+   <p>
+   <strong><%= @bullitin.title %> </strong> <br>
+   <i> <%= @bullitin.content %> </i>
+   </p>  
 
 
-<div>
+
   <%if @bullitin.user == current_user %>
-     <p>
-    <button> <a href="/bullitins/new"> Create </a></button> 
-    
-    <button> <a href="/bullitins/ <%= @bullitin.id %>/edit"> Edit </a> </button> 
-    
-    <form action="/bullitins/<%= @bullitin.id %>" method="post">
+      
+      <form action="/bullitins/<%= @bullitin.id %>" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete">
-    </form>  
-     </p>
-<% end %> 
+      <input type="submit" value="Delete"> <button> <a href="/bullitins/new"> Create </a></button> <button><a href="/bullitins/ <%= @bullitin.id %>/edit"> Edit </a> </button> 
+      </form>  
+    
+   <% end %> 
 
      <button> <a href="/bullitins"> Back </a></button> 
       
-</div> 
+
 

@@ -7,7 +7,9 @@ class BullitinController <ApplicationController
         else 
             redirect "/login"  
         end
-    end 
+    end  
+
+    # CREATE
 
     get "/bullitins/new" do 
         erb :"/bullitins/new" 
@@ -20,7 +22,9 @@ class BullitinController <ApplicationController
          else 
            erb :"/bullitins/new" 
          end
-    end 
+    end  
+
+    # READ
 
     get "/bullitins/:id" do  
         @bullitin = Bullitin.find(params[:id]) 
@@ -28,6 +32,7 @@ class BullitinController <ApplicationController
         erb :"/bullitins/show" 
     end 
     
+    # UPDATE
     get "/bullitins/:id/edit" do  
         @bullitin = Bullitin.find(params[:id]) 
          
@@ -40,11 +45,20 @@ class BullitinController <ApplicationController
 
     patch "/bullitins/:id" do 
         #binding.pry
-        bullitin = Bullitin.find(params[:id])
-        bullitin.update(title: params[:title], content: params[:content])
+        bullitin = Bullitin.find(params[:id]) 
+        if bullitin.user == current_user
+            if bullitin.update(title: params[:title], content: params[:content]) 
+                binding.pry
+              redirect "/bullitins" 
+             else 
+              erb :"/bullitins/edit"
+             end 
+        else 
+          redirect "/bullitins"
+        end
+    end   
 
-        redirect "/bullitins"
-    end  
+    # DELETE
 
     delete "/bullitins/:id" do 
         bullitin = Bullitin.find(params[:id]) 

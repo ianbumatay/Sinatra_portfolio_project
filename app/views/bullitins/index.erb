@@ -3,9 +3,15 @@
 
    <%@bullitins.each do |bullitin|%>  
     <p> <a href="/bullitins/ <%= bullitin.id %>" ></p> 
+
     <p><%= bullitin.title %>  </p>
+
     <p> <a href="/bullitins/ <%= bullitin.id %>/edit"> Edit </p> 
     <% end %>
 
+    
+    
+    
+    
     <br>
     <a href="/bullitins/new"> Create New Bullitins </a>

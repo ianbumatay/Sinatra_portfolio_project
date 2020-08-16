@@ -14,7 +14,7 @@ class BullitinController <ApplicationController
     end 
 
     post "/bullitins" do  
-         @bullitin = current_user.bullitin.build(params)
+         @bullitin = current_user.bullitins.build(params)
          if @bullitin.save
            redirect "/bullitins" 
          else 
@@ -23,7 +23,6 @@ class BullitinController <ApplicationController
     end 
 
     get "/bullitins/:id" do  
-        #binding.pry
         @bullitin = Bullitin.find(params[:id]) 
 
         erb :"/bullitins/show" 
@@ -31,8 +30,12 @@ class BullitinController <ApplicationController
     
     get "/bullitins/:id/edit" do  
         @bullitin = Bullitin.find(params[:id]) 
-
-        erb :"/bullitins/edit" 
+         
+        if @bullitin.user == current_user
+          erb :"/bullitins/edit"  
+        else 
+            redirect "/bullitins" 
+        end
     end 
 
     patch "/bullitins/:id" do 

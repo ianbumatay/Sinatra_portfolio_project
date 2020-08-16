@@ -1,8 +1,9 @@
-<h2><%= current_user.username %>'s Bullitin</h2>
+
+    <h2> Hi! <%= current_user.username %>  </h2>
 
    <%@bullitins.each do |bullitin|%>  
     <p> <a href="/bullitins/ <%= bullitin.id %>" ></p> 
-    <p><%= bullitin.title %> </p>
+    <p><%= bullitin.title %>  </p>
     <p> <a href="/bullitins/ <%= bullitin.id %>/edit"> Edit </p> 
     <% end %>
 

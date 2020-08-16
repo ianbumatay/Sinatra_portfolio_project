@@ -1,9 +1,12 @@
 class BullitinController <ApplicationController  
 
-    get "/bullitins" do 
-        @bullitins = Bullitin.all 
-
-        erb :"/bullitins/index" 
+    get "/bullitins" do  
+        if logged_in?
+          @bullitins = Bullitin.all 
+          erb :"/bullitins/index" 
+        else 
+            redirect "/login"  
+        end
     end 
 
     get "/bullitins/new" do 
@@ -11,10 +14,12 @@ class BullitinController <ApplicationController
     end 
 
     post "/bullitins" do  
-        #binding.pry
-       @bullitin = Bullitin.create(title: params[:title], content: params[:content])
-
-       redirect "/bullitins/#{@bullitin.id}"
+         @bullitin = current_user.bullitin.build(params)
+         if @bullitin.save
+           redirect "/bullitins" 
+         else 
+           erb :"/bullitins/new" 
+         end
     end 
 
     get "/bullitins/:id" do  

@@ -9,8 +9,6 @@ class BullitinsController <ApplicationController
         end
     end  
 
-    # CREATE
-
     get "/bullitins/new" do 
         erb :"/bullitins/new" 
     end 
@@ -24,17 +22,14 @@ class BullitinsController <ApplicationController
          end
     end  
 
-    # READ
-
-    get "/bullitins/:id" do  
-        @bullitin = Bullitin.find_by_id(params[:id]) 
+    get "/bullitins/:id" do 
+        get_bullitin
 
         erb :"/bullitins/show" 
     end 
     
-    # UPDATE
-    get "/bullitins/:id/edit" do  
-        @bullitin = Bullitin.find_by_id(params[:id]) 
+    get "/bullitins/:id/edit" do   
+      get_bullitin
          
         if @bullitin.user == current_user
           erb :"/bullitins/edit"  
@@ -44,8 +39,8 @@ class BullitinsController <ApplicationController
     end 
 
     patch "/bullitins/:id" do 
-        #binding.pry
-        @bullitin = Bullitin.find_by_id(params[:id]) 
+         get_bullitin
+        
         if @bullitin.user == current_user
             if @bullitin.update(title: params[:title], content: params[:content]) 
               
@@ -58,18 +53,18 @@ class BullitinsController <ApplicationController
         end
     end   
 
-    # DELETE
-
     delete "/bullitins/:id" do 
-        @bullitin = Bullitin.find_by_id(params[:id]) 
+       get_bullitin 
         if @bullitin.user == current_user
            @bullitin.delete  
         end
         redirect "/bullitins"
+    end 
+
+    private 
+
+    def get_bullitin 
+      @bullitin = Bullitin.find_by_id(params[:id]) 
     end
-
-    
-
-
 
 end

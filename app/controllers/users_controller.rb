@@ -1,7 +1,5 @@
 class UsersController < ApplicationController   
 
-
-
     
     get "/users/signup" do
         erb :"/users/signup"
@@ -17,7 +15,6 @@ class UsersController < ApplicationController
         end
      end  
 
-
      get "/users/login" do 
         erb :"/users/login" 
      end
@@ -28,6 +25,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect "/bullitins" 
         else 
+            #flash[:error] = "Invalid credentials. Try again"
             redirect :"/users/login" 
         end 
      end 

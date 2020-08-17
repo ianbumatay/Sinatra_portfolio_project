@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
      post "/signup" do
         if params[:username].empty? || params[:email].empty? 
+            flash[:error] = "please fill the required fields"
             erb :"/users/signup" 
         else
           user = User.create(params)
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect "/bullitins" 
         else 
-            #flash[:error] = "Invalid credentials. Try again"
+            flash[:error] = "Invalid credentials. please try again"
             redirect :"/users/login" 
         end 
      end 

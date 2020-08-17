@@ -1,5 +1,9 @@
 
-<h2> Login Form </h2>
+<h2> Login Form </h2> 
+
+<% if flash[:error] %>
+<p class="error"><%= flash[:error] %></p>
+<% end %>
 
 <form method="post" action="/login"> 
 <input type="text" id="username" name="username" placeholder="username">   

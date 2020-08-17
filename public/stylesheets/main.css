@@ -80,7 +80,13 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+  }  
+
+  .error {
+    color: red;
   }
+
+
 }
 
 @media screen and (max-width: 600px) {
@@ -111,5 +117,9 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
+  } 
+
+  .error {
+    color: red;
   }
 }

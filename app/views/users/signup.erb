@@ -1,4 +1,8 @@
-<h2> Signup Form </h2>
+<h2> Signup Form </h2> 
+
+<% if flash[:error]%> 
+<p class="error"><%= flash[:error] %></p>
+<%end%>
 
 <form method="post" action="/signup"> 
 <input type="text" id="username" name="username" placeholder="username"> 

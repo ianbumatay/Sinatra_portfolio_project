@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end 
 
      post "/signup" do
-        if params[:username].empty? || params[:email].empty? 
+        if params[:username].empty? || params[:email].empty? || params[:password].empty?
             flash[:error] = "please fill the required fields"
             erb :"/users/signup" 
         else
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
             redirect "/bullitins" 
         else 
             flash[:error] = "Invalid credentials. please try again"
-            redirect :"/users/login" 
+            redirect "/users/login" 
         end 
      end 
 
@@ -38,4 +38,4 @@ class UsersController < ApplicationController
      end
 
    
-end
+end 

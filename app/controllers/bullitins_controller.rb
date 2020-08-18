@@ -16,7 +16,7 @@ class BullitinsController <ApplicationController
     post "/bullitins" do  
          @bullitin = current_user.bullitins.build(params)
          if @bullitin.save
-           redirect "/bullitins" 
+           redirect "/bullitins/" 
          else 
            erb :"/bullitins/new" 
          end
@@ -42,11 +42,10 @@ class BullitinsController <ApplicationController
          get_bullitin
         
         if @bullitin.user == current_user
-            if @bullitin.update(title: params[:title], content: params[:content]) 
-              
+            if @bullitin.update(title: params[:title], content: params[:content])  
               redirect "/bullitins" 
              else 
-              erb :"/bullitins/edit"
+               erb :"/bullitins/edit"
              end 
         else 
           redirect "/bullitins"

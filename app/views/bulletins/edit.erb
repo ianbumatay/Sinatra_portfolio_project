@@ -1,0 +1,12 @@
+ <a href="/logout"> Logout</a><br> 
+        
+<h2>Edit Your Page Here</h2>
+
+<form action="/bulletins/<%= @bulletin.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" id="title" name="title" value="<%=@bulletin.title%>">
+  <input type="text" id="content" name="content" value="<%=@bulletin.content%>">
+  <input type="submit" value="submit">
+</form> 
+
+<button><a href="/bulletins"> back </a></button>

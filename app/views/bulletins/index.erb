@@ -1,0 +1,14 @@
+<a href="/logout"> Logout</a><br>
+
+<h4>Hi!<%=current_user.username%> welcome to freewall your online bulletin board</h4><br>
+
+   <%@bulletins.each do |bulletin|%>  
+      <p><a href="/bulletins/<%= bulletin.id %>"></p> 
+      <p><h4><%=bulletin.title%></h4>by<%=bulletin.user.username%></p>  
+  <%end%>
+   
+  <br>
+
+   <button> <a href="/bulletins/new"> Create </a></button> 
+
+   

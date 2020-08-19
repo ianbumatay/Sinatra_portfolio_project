@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base 
     has_secure_password 
-    has_many :bullitins  
+    has_many :bulletins  
     
 end

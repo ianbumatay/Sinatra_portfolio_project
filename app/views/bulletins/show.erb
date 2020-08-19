@@ -1,0 +1,28 @@
+ 
+<a href="/logout"> Logout</a><br>
+
+<div class="container">
+<header>
+<h4> Hi!<%=current_user.username%>welcome to your bulletin's<h4><br>
+</header>
+<div class="col-md-8 col-md-offset-2">
+
+   <p>
+   <strong><%=@bulletin.title%></strong><br>
+   <i><%=@bulletin.content%></i>
+   </p>  
+
+
+
+  <%if @bulletin.user == current_user %> 
+      <form action="/bulletins/<%=@bulletin.id%>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete"> 
+      </form>  
+      <button><a href="/bulletins/new"> Create </a></button> <button><a href="/bulletins/<%=@bulletin.id%>/edit"> Edit </a> </button> 
+   <%end%> 
+
+     <button> <a href="/bulletins"> Back </a></button> 
+      
+
+

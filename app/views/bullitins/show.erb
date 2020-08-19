@@ -3,25 +3,24 @@
 
 <div class="container">
 <header>
-<h4> Hi! <%= current_user.username %> welcome to your bullitin's<h4> <br>
+<h4> Hi!<%=current_user.username%>welcome to your bullitin's<h4><br>
 </header>
 <div class="col-md-8 col-md-offset-2">
 
    <p>
-   <strong><%= @bullitin.title %> </strong> <br>
-   <i> <%= @bullitin.content %> </i>
+   <strong><%=@bullitin.title%></strong><br>
+   <i><%=@bullitin.content%></i>
    </p>  
 
 
 
-  <%if @bullitin.user == current_user %>
-      
-      <form action="/bullitins/<%= @bullitin.id %>" method="post">
+  <%if @bullitin.user == current_user %> 
+      <form action="/bullitins/<%=@bullitin.id%>" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete"> <button> <a href="/bullitins/new"> Create </a></button> <button><a href="/bullitins/ <%= @bullitin.id %>/edit"> Edit </a> </button> 
+      <input type="submit" value="Delete"> 
       </form>  
-    
-   <% end %> 
+      <button><a href="/bullitins/new"> Create </a></button> <button><a href="/bullitins/<%=@bullitin.id%>/edit"> Edit </a> </button> 
+   <%end%> 
 
      <button> <a href="/bullitins"> Back </a></button> 
       

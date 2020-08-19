@@ -1,9 +1,9 @@
 
 # Freewall  
 
-Welcome to my sinatra porfolio project Freewall short for freedome wall, is an online bullitin board build as a source of information locally for your community, school, small group or organizations.  
+Welcome to my sinatra porfolio project Freewall short for freedome wall, is an online bulletin board build as a source of information locally for your community, school, small group or organizations.  
 
-You can create a bullitin (a short official statement) and  pin (Post) a headlines for a local news, a real estate advertisment in you area, or simple a schedule of your yoga class in the wall (application index) for everyone to see.
+You can create a bulletin (a short official statement) and  pin (Post) a headlines for a local news, a real estate advertisment in you area, or simple a schedule of your yoga class in the wall (application index) for everyone to see.
 
 
 

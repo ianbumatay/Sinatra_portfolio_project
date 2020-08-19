@@ -4,7 +4,7 @@
 
    <%@bulletins.each do |bulletin|%>  
       <p><a href="/bulletins/<%= bulletin.id %>"></p> 
-      <p><h4><%=bulletin.title%></h4>by<%=bulletin.user.username%></p>  
+      <p><h4><%= bulletin.title %></h4>by: <%= bulletin.user.username %></p> 
   <%end%>
    
   <br>
